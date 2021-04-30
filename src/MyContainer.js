@@ -5,6 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Home from './Home';
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -21,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CenteredGrid() {
-  console.log(useStyles);
   const classes = useStyles();
 
   return (
@@ -55,7 +55,13 @@ export default function CenteredGrid() {
                   <Users />
                 </Route>
                 <Route path="/">
-                  <Home />
+                  <Home>
+                    <p>Default slot</p>
+                    <div>
+                      <Home.Header extensionProp={<Extension />}>Some header text in a slot</Home.Header>
+                      <Home.Body>Custom body in a slot</Home.Body>
+                    </div>
+                  </Home>
                 </Route>
               </Switch>
             </Paper>
@@ -66,14 +72,14 @@ export default function CenteredGrid() {
   );
 }
 
-function Home() {
-  return <h2>Home</h2>;
-}
-
 function About() {
   return <h2>About</h2>;
 }
 
 function Users() {
   return <h2>Users</h2>;
+}
+
+function Extension() {
+  return <h2>Extension</h2>
 }
