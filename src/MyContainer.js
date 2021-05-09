@@ -54,6 +54,8 @@ export default function CenteredGrid() {
                 <Route path="/users">
                   <Users />
                 </Route>
+
+
                 <Route path="/">
                   <Home>
                     <p>Default slot</p>
@@ -63,6 +65,8 @@ export default function CenteredGrid() {
                     </div>
                   </Home>
                 </Route>
+
+
               </Switch>
             </Paper>
           </Grid>
