@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import Home from './Home';
+import AxiosDataFetching from './AxiosDataFetching';
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -41,6 +42,9 @@ export default function CenteredGrid() {
                   <li>
                     <Link to="/users">Users</Link>
                   </li>
+                  <li>
+                    <Link to="/axios">Axios Data Fetching</Link>
+                  </li>
                 </ul>
               </nav>
             </Paper>
@@ -53,6 +57,10 @@ export default function CenteredGrid() {
                 </Route>
                 <Route path="/users">
                   <Users />
+                </Route>
+
+                <Route path="/axios">
+                  <AxiosDataFetching />
                 </Route>
 
 
