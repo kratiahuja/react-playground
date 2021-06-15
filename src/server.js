@@ -14,7 +14,7 @@ export function makeServer({ environment = "test" } = {}) {
     },
 
     routes() {
-      this.namespace = "api"
+      this.namespace = "api/v1"
 
       this.get("/users", (schema) => {
         return schema.users.all()

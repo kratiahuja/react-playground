@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from "react"
+import useLiFetch from './hooks/LIFetch';
 
-export default function App() {
-  let [users, setUsers] = useState([])
+export default function AppDataFetching() {
 
-  useEffect(() => {
-    fetch("/api/users")
-      .then((res) => res.json())
-      .then((json) => {
-        setUsers(json.users)
-      })
-  }, [])
+  const [{data, loading, error}] = useLiFetch({
+    url: '/users'
+  });
+
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error!</p>
+
 
   return (
     <ul>
-      {users.map((user) => (
+      {data.users.map((user) => (
         <li key={user.id}>{user.name}</li>
       ))}
     </ul>
